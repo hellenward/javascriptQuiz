@@ -8,6 +8,14 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
 .questionBox {
   border: 1px solid aliceblue;
   width: 80%;
@@ -32,14 +40,6 @@ h1 {
   text-align: right;
   margin: auto;
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.buttonCorrect {
-  background-color: green;
-}
-
-.buttonIncorrect {
-  background-color: red;
 }
 
 .nextQuestion {
