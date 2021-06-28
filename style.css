@@ -1,0 +1,93 @@
+body {
+  background-color: black;
+  color: aliceblue;
+  font-family: "Inconsolata", monospace;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+.questionBox {
+  border: 1px solid aliceblue;
+  width: 80%;
+  margin: 100px auto auto auto;
+  padding: 15px;
+}
+
+.question {
+  margin-bottom: 100px;
+}
+
+.questionButtonDiv {
+  display: flex;
+}
+
+.questionNumberDiv {
+  flex: 1;
+}
+
+.buttonDiv {
+  flex: 1;
+  text-align: right;
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.nextQuestion {
+  height: 50px;
+  border-radius: 15%;
+}
+
+.answerBox {
+  margin: auto auto 50px auto;
+  padding: 15px;
+}
+
+.answers {
+  display: flex;
+}
+
+.neutralClass {
+  border: 1px solid aliceblue;
+  width: 25%;
+  margin: 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+.incorrectClass {
+  border: 1px solid red;
+  width: 25%;
+  margin: 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+.correctClass {
+  border: 3px solid green;
+  width: 25%;
+  margin: 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+.correctAnswer {
+  margin-top: 30px;
+}
+
+.incorrectAnswer {
+  margin-top: 30px;
+}
+
+.hidden {
+  display: none;
+}
