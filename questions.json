@@ -21,6 +21,163 @@
       ],
       "correctAnswer": "It helps your computer by removing old unused objects from its memory",
       "moreInfo": "It’s an algorithm inside of the JS engine which removes old unused objects from the computer memory so it doesn’t clog up your computer."
+    },
+    {
+      "questionNumber": 3,
+      "question": "How does Javascript turn human language code into computer code?",
+      "incorrectAnswers": [
+        "It's not Javascript, the keyboard does it automatically.",
+        "You need a separate programme that works with Javascript and has to be running on your machine at the same time as you're writing/testing your code.",
+        "Computers and humans speak the same language."
+      ],
+      "correctAnswer": "This is dealt with by the Javascript Engine and uses just-in-time compilation.",
+      "moreInfo": "Javascript used to be a purely interpreted language, meaning an interpreter would run through the source code and execute it line by line, but this resulted in low performance which in modern times is not so acceptable. These days it uses a mix of compilation and interpretion - it compiles the whole source code and runs it immediately."
+    },
+    {
+      "questionNumber": 4,
+      "question": "What do we mean when we say Javascript is multi-paradigm?",
+      "incorrectAnswers": [
+        "It means you can mix it up with other programming languages.",
+        "It means you can run several Javascript programmes at the same time with no CPU issues.",
+        "It means variables can change their type several times depending on what you need them to do."
+      ],
+      "correctAnswer": "Javascript is procedural, object-orientated and functional and this makes it much more flexible.",
+      "moreInfo": "A paradigm is a way of structuring our code which ultimately directs our coding style."
+    },
+    {
+      "questionNumber": 5,
+      "question": "Prototype-based object-orientated - want to take a guess what that means?",
+      "incorrectAnswers": [
+        "The whole of Javascript is a prototype.",
+        "Objects need to be written as prototypes in order for Javascript to work. This can be done in the package.json file.",
+        "You need to declare everything as an object before you can run your code."
+      ],
+      "correctAnswer": "There are some objects always available to us in Javascript (prototypes) which come with pre-defined methods - e.g. arrays always include the push() method.",
+      "moreInfo": "Almost everything in Javascript is an object, apart from primative values like numbers and strings. Methods on objects, such as array.push() are known as prototypal inheritance."
+    },
+    {
+      "questionNumber": 6,
+      "question": "What are first class functions?",
+      "incorrectAnswers": [
+        "Functions that have precedence over other (second and third class) functions. This helps the Javascript engine decide which functions to execute first.",
+        "Functions that call other functions within the code.",
+        "Functions that get called first, before the rest of the code begins to execute."
+      ],
+      "correctAnswer": "Functions are treated like variables. We can pass functions into functions and can also return functions from other functions. There are a lot of functions in this sentence.",
+      "moreInfo": "Functions are treated like variables. This is very powerful and allows us to adopt functional programming - one of the paradigms mentioned in an earlier question."
+    },
+    {
+      "questionNumber": 7,
+      "question": "What do we mean when we say Javascript is dynamically typed?",
+      "incorrectAnswers": [
+        "Variables of some types get on better with variables of the same type.",
+        "You can have wildcard variables that can stand in for other kinds of variables - like the blank key in Scrabble.",
+        "You can use variables in more than one file type in your code."
+      ],
+      "correctAnswer": "We don't need to assign data types to variables when they're declared, this only becomes known once the code is executed. Also types can change depending on what we need from the variable.",
+      "moreInfo": "There is some discussion on whether this is good or bad. A lot of other languages require variables to have their data types declared up front, and this prevents bugs further along the line. If you want to use Javascript in a more strongly-typed manner, check out Typescript."
+    },
+    {
+      "questionNumber": 8,
+      "question": "What do we mean when we say Javascript is single-thread?",
+      "incorrectAnswers": [
+        "It uses thread as one of its datatypes.",
+        "You have to be careful not to get your functions tangled up.",
+        "It stands for T-head, or table-head. All tables in Javascript have to have a header."
+      ],
+      "correctAnswer": "It can only run one task at a time, in a single thread.",
+      "moreInfo": "If you're wondering how it handles multiple tasks at the same time, this is possible due to the concurrency model. Next question!"
+    },
+    {
+      "questionNumber": 9,
+      "question": "Javascript will take long running tasks, execute them and then put them back into the main thread when they're ready. What is this process known as?",
+      "incorrectAnswers": ["Multitasking", "Non-event block loop.", "The Javascript Engine."],
+      "correctAnswer": "Non-blocking event loop.",
+      "moreInfo": "More on this later..."
+    },
+    {
+      "questionNumber": 10,
+      "question": "What is the Javascript engine?",
+      "incorrectAnswers": [
+        "It's contained within your computer and runs your code.",
+        "It takes your code on a journey - Javascript road trip anyone?",
+        "It's very much like a server - there are several in the world that run all the Javascript in their local areas."
+      ],
+      "correctAnswer": "It comes with whichever browser you're using and runs your code.",
+      "moreInfo": "Examples include Google V8."
+    },
+    {
+      "questionNumber": 11,
+      "question": "What are the componoents of a Javascript Engine?",
+      "incorrectAnswers": [
+        "The heap and the data flow.",
+        "The call stack and the non-blocking event loop",
+        "The heap and big data."
+      ],
+      "correctAnswer": "The call stack and the heap.",
+      "moreInfo": "The call stack is where the data is executed. The heap is an unstructured memory pool which stores all the objects our application needs."
+    },
+    {
+      "questionNumber": 12,
+      "question": "Step 1: Parsing. Javascript parses the original code and passes it to the ",
+      "incorrectAnswers": ["Javascript Engine.", "Call stack.", "Goalie."],
+      "correctAnswer": "Abstract Syntax Tree (AST).",
+      "moreInfo": " This splits each line of code into pieces that are meaningful for the language like the const or function keywords and then save it into the tree in a structured way. It also checks for syntax errors. This is then used later to generate the machine code."
+    },
+    {
+      "questionNumber": 13,
+      "question": "Step 2: Compilation. What's special about the way Javascript compiles code?",
+      "incorrectAnswers": [
+        "It spots and deletes code it doesn't need, thereby saving your computer's resources and helping the browser to run more efficiently.",
+        "It does it without being told to do it - no instructions, no command line etc. It's all automatic.",
+        "There isn't anything special about it. It does the same thing any other language would do."
+      ],
+      "correctAnswer": "It creates an un-optimised version of the code so it can start executing immediately and then optimises and re-compiles in the background while it's running, sweeping out non-optimised for optimised as it goes.",
+      "moreInfo": "In this way, it is both compiled and interpreted! Also known as just-in-time compilation."
+    },
+    {
+      "questionNumber": 13,
+      "question": "Step 3: What is javascript run time?",
+      "incorrectAnswers": [
+        "The speed at which your programme executes.",
+        "The command you have to type to start your code after it's been compiled.",
+        "A cool band from the 90s. They had a top ten hit once..."
+      ],
+      "correctAnswer": "This is the container that contains all the things you need to use Javascript.",
+      "moreInfo": "This includes the Javascript Engine itself, the web APIs and the call back queue"
+    },
+    {
+      "questionNumber": 14,
+      "question": "Step 3: How does the call back queue and call stack work?",
+      "incorrectAnswers": [
+        "Events are put up onto the cloud by the Javascript engine. The stack keeps a reference to them and retrieves them when needed.",
+        "The call stack is a list of phone numbers. When an event is called, the call back happens.",
+        "The call back queue takes your methods and orders them by size and resources needed to complete their corresponding events. The call stack will execute events in ascending order of size."
+      ],
+      "correctAnswer": "Events are stored in the call back queue until the call stack is empty. The event will then be put into the call stack and executed.",
+      "moreInfo": "This is also known as the event loop and is essential for the non-blocking concurrency model."
+    },
+    {
+      "questionNumber": 15,
+      "question": "Step 3: A global execution context is created. How many global execution contexts are there?",
+      "incorrectAnswers": [
+        "4 - one for each step of the run time process.",
+        "It depends on how many functions you have.",
+        "The global execution context gets deleted once the code is executed, so the answer is 0."
+      ],
+      "correctAnswer": "1, but every function call will have its own execution context as well.",
+      "moreInfo": "An execution context is an environment in which a piece of Javascript is executed. The global execution context is created for the top level code only - this includes code that is not inside any function. There is only one global execution context and it's always there as the default context."
+    },
+    {
+      "questionNumber": 16,
+      "question": "Step 3: What's inside an execution context?",
+      "incorrectAnswers": [
+        "All of the code.",
+        "A list of methods the Javascript Engine will need to execute",
+        "The this keyword and a map of the DOM so it can navigate through the code."
+      ],
+      "correctAnswer": "A variable environment, the scope chain and the this keyword.",
+      "moreInfo": " This splits each line of code into pieces that are meaningful for the language like the const or function keywords and then save it into the tree in a structured way. It also checks for syntax errors. This is then used later to generate the machine code."
     }
   ]
 }

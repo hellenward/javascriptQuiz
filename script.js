@@ -86,6 +86,8 @@ request.onload = function () {
       questions[currentQuestion].correctAnswer
     ) {
       document.querySelector(`.${element}`).classList.add('correctClass')
+      score++
+      document.querySelector('.score').textContent = `Score: ${score}`
     } else {
       document.querySelector(`.${element}`).classList.add('incorrectClass')
     }
@@ -95,6 +97,8 @@ request.onload = function () {
 
   let currentQuestion = 0
   let answerSelectionArray = []
+  let score = 0
+  document.querySelector('.score').textContent = `Score: ${score}`
   initialise()
 
   document.querySelector('.answer1').addEventListener('click', function () {

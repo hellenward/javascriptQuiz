@@ -16,6 +16,12 @@ h3 {
   font-size: 25px;
 }
 
+.score {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 30px;
+}
+
 .questionBox {
   border: 1px solid aliceblue;
   width: 80%;
