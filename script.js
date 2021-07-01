@@ -91,6 +91,14 @@ request.onload = function () {
     } else {
       document.querySelector(`.${element}`).classList.add('incorrectClass')
     }
+    for (let i = 0; i <= answerSelectionArray.length; i++) {
+      if (
+        answerSelectionArray[i] === questions[currentQuestion].correctAnswer
+      ) {
+        console.log(`.answer${i}`)
+        document.querySelector(`.answer${i - 1}`).classList.add('correctClass')
+      }
+    }
     document.querySelector('.nextQuestion').classList.remove('hidden')
     document.querySelector('.moreInfo').classList.remove('hidden')
   }

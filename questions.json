@@ -177,7 +177,69 @@
         "The this keyword and a map of the DOM so it can navigate through the code."
       ],
       "correctAnswer": "A variable environment, the scope chain and the this keyword.",
-      "moreInfo": " This splits each line of code into pieces that are meaningful for the language like the const or function keywords and then save it into the tree in a structured way. It also checks for syntax errors. This is then used later to generate the machine code."
+      "moreInfo": "The variable environment contains all of our variables, plus an arguments object containing all of the arguments that are passed into the function that the current execution belongs to. The scope chain contains references to variables outside of the current function. The this keyword will be covered later."
+    },
+    {
+      "questionNumber": 17,
+      "question": "Step 3: How are arrow functions different in relation to executions contexts?",
+      "incorrectAnswers": [
+        "It's written differently and therefore the execution context needs to execute it in a different way.",
+        "It's covered by the global execution context instead of having its own execution context like any other kind of function would.",
+        "It doesn't need a this keyword because the syntax of the arrow function makes this redundant."
+      ],
+      "correctAnswer": "They don't get their own arguments object or this keyword. Instead they use the ones from the nearest regular function parent.",
+      "moreInfo": "This is an important difference to remember about arrow functions!"
+    },
+    {
+      "questionNumber": 18,
+      "question": "Step 4: Fill in the blank. When a function is called, it gets its own execution context. This is put into the ________________ on top of the global execution context.",
+      "incorrectAnswers": ["Queue", "Javascript Engine", "Heap"],
+      "correctAnswer": "Call stack",
+      "moreInfo": "The call stack acts like a queue. As functions are called, they get added to the call stack. The programme takes whichever execution context is at the top of the call stack and executes it, then moves onto the next one. When functions are called within functions, their execution context is created and added to the pile. It will always start with the global execution context and work its way through the code, returning to it once it runs out of function execution contexts. Once there are no more functions, it will wait until the programme is finished or more functions are called via events such as clicks."
+    },
+    {
+      "questionNumber": 19,
+      "question": "What is scoping?",
+      "incorrectAnswers": [
+        "It's the reach or scope of an individual function. Some functions can only see certain files in the code and therefore they have no way of mutating data in other files.",
+        "It's the size of a function. Some functions are a lot bigger and more complicated than others, and we therefore say they have a larger scope.",
+        "It's the size of a variable. If they contain a lot of data, more scope is required to store them."
+      ],
+      "correctAnswer": "It's the space or environment in which a variable is declared and dictates which variables are available to which functions.",
+      "moreInfo": "Javascript uses lexical scoping which means the way variables are organised and accessed is entirely controlled by the placement of functions and blocks in the code. A function written inside another function has access to its parent function's variables and the gloibal variables written outside of functions."
+    },
+    {
+      "questionNumber": 20,
+      "question": "What's the difference between global scope and function scope?",
+      "incorrectAnswers": [
+        "There is no difference.",
+        "Global scope relates to all variables. Function scope relates to the functions themselves.",
+        "Function scope relates specifically to arrow functions. Global scope is everything else."
+      ],
+      "correctAnswer": "Global scope relates to variables declared outside of functions. Function scope relates to variables inside functions. Functions can access global scope variables, but global cannot access functional scope variables unless they're returned and stored.",
+      "moreInfo": "The variable environment contains all of our variables, plus an arguments object containing all of the arguments that are passed into the function that the current execution belongs to. The scope chain contains references to variables outside of the current function. The this keyword will be covered later."
+    },
+    {
+      "questionNumber": 21,
+      "question": "Starting from ES6, block scope has been introduced. What is block scope?",
+      "incorrectAnswers": [
+        "It relates to a new kind of object called block. You have to declare a block and then the variables inside that block will only relate to the block itself and not outside it.",
+        "You can declare a variable to be private and therefore it blocks the scope and stops other functions from accessing it. This prevents bugs.",
+        "You can declare a variable outside of a function, but tell it that it only relates to a certain function. Other functions are therefore blocked from accessing it."
+      ],
+      "correctAnswer": "It relates to anything that is inside curly braces. Variables declared inside curly braces are accessible inside the block and not outside.",
+      "moreInfo": "Also starting in ES6, all functions are now also block scoped which means that functions declared inside a block are also accessible only inside the block."
+    },
+    {
+      "questionNumber": 22,
+      "question": "What is the difference scope-wise between let, const and var?",
+      "incorrectAnswers": [
+        "From ES6, var and let are block scoped. Const is function scoped.",
+        "From ES6, let and const are globally scoped, var is function or block but never global anymore.",
+        "There is no difference, but before ES6 there used to be. ES6 brought var into line with the others, and now all are block scoped."
+      ],
+      "correctAnswer": "From ES6, let and const are block scoped. Var is function scoped.",
+      "moreInfo": "If a var is declared inside a block, it will still be accessible outside of the block."
     }
   ]
 }
