@@ -60,11 +60,13 @@ h3 {
 
 .answers {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .neutralClass {
   border: 1px solid aliceblue;
-  width: 25%;
+  width: fit-content;
+  height: auto;
   margin: 10px;
   text-align: center;
   padding: 10px;
@@ -72,7 +74,8 @@ h3 {
 
 .incorrectClass {
   border: 1px solid red;
-  width: 25%;
+  width: fit-content;
+  height: auto;
   margin: 10px;
   text-align: center;
   padding: 10px;
@@ -80,10 +83,31 @@ h3 {
 
 .correctClass {
   border: 3px solid green;
-  width: 25%;
+  width: fit-content;
+  height: auto;
   margin: 10px;
   text-align: center;
   padding: 10px;
+}
+
+@media (min-width: 550px) {
+  .neutralClass,
+  .correctClass,
+  .incorrectClass {
+    width: 30%;
+  }
+
+  .answers {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1000px) {
+  .neutralClass,
+  .correctClass,
+  .incorrectClass {
+    width: 20%;
+  }
 }
 
 .correctAnswer {

@@ -34,48 +34,52 @@ request.onload = function () {
   const initialise = () => {
     answerSelectionArray = []
 
-    console.log(questions[0])
+    if (currentQuestion === questions.length - 1) {
+      finishGame()
+    } else {
+      document.querySelector('.answer1').classList.remove('incorrectClass')
+      document.querySelector('.answer1').classList.remove('correctClass')
+      document.querySelector('.answer1').classList.add('neutralClass')
+      document.querySelector('.answer2').classList.remove('incorrectClass')
+      document.querySelector('.answer2').classList.remove('correctClass')
+      document.querySelector('.answer2').classList.add('neutralClass')
+      document.querySelector('.answer3').classList.remove('incorrectClass')
+      document.querySelector('.answer3').classList.remove('correctClass')
+      document.querySelector('.answer3').classList.add('neutralClass')
+      document.querySelector('.answer4').classList.remove('incorrectClass')
+      document.querySelector('.answer4').classList.remove('correctClass')
+      document.querySelector('.answer4').classList.add('neutralClass')
+      document.querySelector('.nextQuestion').classList.add('hidden')
+      document.querySelector('.moreInfo').classList.add('hidden')
 
-    document.querySelector('.answer1').classList.remove('incorrectClass')
-    document.querySelector('.answer1').classList.remove('correctClass')
-    document.querySelector('.answer1').classList.add('neutralClass')
-    document.querySelector('.answer2').classList.remove('incorrectClass')
-    document.querySelector('.answer2').classList.remove('correctClass')
-    document.querySelector('.answer2').classList.add('neutralClass')
-    document.querySelector('.answer3').classList.remove('incorrectClass')
-    document.querySelector('.answer3').classList.remove('correctClass')
-    document.querySelector('.answer3').classList.add('neutralClass')
-    document.querySelector('.answer4').classList.remove('incorrectClass')
-    document.querySelector('.answer4').classList.remove('correctClass')
-    document.querySelector('.answer4').classList.add('neutralClass')
-    document.querySelector('.nextQuestion').classList.add('hidden')
-    document.querySelector('.moreInfo').classList.add('hidden')
+      for (
+        let i = 0;
+        i < questions[currentQuestion].incorrectAnswers.length;
+        i++
+      ) {
+        answerSelectionArray.push(
+          questions[currentQuestion].incorrectAnswers[i]
+        )
+      }
 
-    for (
-      let i = 0;
-      i < questions[currentQuestion].incorrectAnswers.length;
-      i++
-    ) {
-      answerSelectionArray.push(questions[currentQuestion].incorrectAnswers[i])
+      answerSelectionArray.push(questions[currentQuestion].correctAnswer)
+      shuffle(answerSelectionArray)
+
+      document.querySelector(
+        '.questionNumber'
+      ).textContent = `Question ${questions[currentQuestion].questionNumber}`
+
+      document.querySelector(
+        '.question'
+      ).textContent = `${questions[currentQuestion].question}`
+
+      document.querySelector('.answer1').textContent = answerSelectionArray[0]
+      document.querySelector('.answer2').textContent = answerSelectionArray[1]
+      document.querySelector('.answer3').textContent = answerSelectionArray[2]
+      document.querySelector('.answer4').textContent = answerSelectionArray[3]
+      document.querySelector('.moreInfo').textContent =
+        questions[currentQuestion].moreInfo
     }
-
-    answerSelectionArray.push(questions[currentQuestion].correctAnswer)
-    shuffle(answerSelectionArray)
-
-    document.querySelector(
-      '.questionNumber'
-    ).textContent = `Question ${questions[currentQuestion].questionNumber}`
-
-    document.querySelector(
-      '.question'
-    ).textContent = `${questions[currentQuestion].question}`
-
-    document.querySelector('.answer1').textContent = answerSelectionArray[0]
-    document.querySelector('.answer2').textContent = answerSelectionArray[1]
-    document.querySelector('.answer3').textContent = answerSelectionArray[2]
-    document.querySelector('.answer4').textContent = answerSelectionArray[3]
-    document.querySelector('.moreInfo').textContent =
-      questions[currentQuestion].moreInfo
   }
 
   const checkForCorrectAnswer = element => {
@@ -95,12 +99,29 @@ request.onload = function () {
       if (
         answerSelectionArray[i] === questions[currentQuestion].correctAnswer
       ) {
-        console.log(`.answer${i}`)
-        document.querySelector(`.answer${i - 1}`).classList.add('correctClass')
+        const correct = i + 1
+        document
+          .querySelector(`.answer${correct}`)
+          .classList.add('correctClass')
       }
     }
-    document.querySelector('.nextQuestion').classList.remove('hidden')
     document.querySelector('.moreInfo').classList.remove('hidden')
+    document.querySelector('.nextQuestion').classList.remove('hidden')
+  }
+
+  const finishGame = () => {
+    document.querySelector('.answer1').classList.add('hidden')
+    document.querySelector('.answer2').classList.add('hidden')
+    document.querySelector('.answer3').classList.add('hidden')
+    document.querySelector('.answer4').classList.add('hidden')
+    document.querySelector('.score').classList.add('hidden')
+    document.querySelector('.moreInfo').classList.add('hidden')
+    document.querySelector('.choose').classList.add('hidden')
+    document.querySelector('.questionNumber').classList.add('hidden')
+    document.querySelector('.nextQuestion').classList.add('hidden')
+    document.querySelector(
+      '.question'
+    ).textContent = `Congratulations, you completed the quiz! Your final score is ${score}`
   }
 
   let currentQuestion = 0
@@ -130,5 +151,6 @@ request.onload = function () {
     .addEventListener('click', function () {
       currentQuestion++
       initialise()
+      console.log(currentQuestion, questions.length)
     })
 }
