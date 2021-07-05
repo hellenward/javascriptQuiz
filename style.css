@@ -16,6 +16,10 @@ h3 {
   font-size: 25px;
 }
 
+button {
+  background-color: green;
+}
+
 .score {
   text-align: center;
   margin-top: 50px;
