@@ -151,6 +151,5 @@ request.onload = function () {
     .addEventListener('click', function () {
       currentQuestion++
       initialise()
-      console.log(currentQuestion, questions.length)
     })
 }
