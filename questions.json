@@ -240,6 +240,145 @@
       ],
       "correctAnswer": "From ES6, let and const are block scoped. Var is function scoped.",
       "moreInfo": "If a var is declared inside a block, it will still be accessible outside of the block."
+    },
+    {
+      "questionNumber": 23,
+      "question": "What is hoisting?",
+      "incorrectAnswers": [
+        "This is a sailing term and nothing to do with Javascript - you can't fool me!",
+        "The Javascript Engine will prioritise functions and hoist them to the top of the call stack.",
+        "This means the compiation process is complete and we're good to go."
+      ],
+      "correctAnswer": "Hoisting makes some kinds of variables availabe in the code before they are declared.",
+      "moreInfo": "The code is scanned during the creation phase for variable declarations and a new property is created in the variable environment of the execution context."
+    },
+    {
+      "questionNumber": 24,
+      "question": "If you try to access a function declaration before it is fully declared in the code (i.e. function functionName() {...}), what will happen?",
+      "incorrectAnswers": [
+        "You will get a console message saying it is undefined.",
+        "You will get a console error saying you cannot access a function declaration before initialisation.",
+        "Nothing will happen."
+      ],
+      "correctAnswer": "It will call the function.",
+      "moreInfo": "That is because function declarations are hoisted and stored in the variable environment as itself, hence why it is available immediately. This is what hoisting was made for!"
+    },
+    {
+      "questionNumber": 24,
+      "question": "What happens if you try to access a variable declard with var before it is defined?",
+      "incorrectAnswers": [
+        "You will get a console.error saying you cannot access a function declaration before initialisation.",
+        "It will give you the variable definition defined further down.",
+        "Nothing will happen."
+      ],
+      "correctAnswer": "You will get a console message saying the variable is undefined.",
+      "moreInfo": "This is one of those things which seemed like a good idea at the time and now cannot be changed. It can cause some unwanted behaviour because undefined is not the same as uninitialised and therefore if you're relying on a var it will present as false until the code recompiles with the value you want it to be. This is why it's best to avoid var if at all possible."
+    },
+    {
+      "questionNumber": 25,
+      "question": "What happens if you try to access a variable declared with let or const before it is defined?",
+      "incorrectAnswers": [
+        "It will give you the variable definition defined further down.",
+        "Nothing will happen.",
+        "You will get a console message saying the variable is undefined."
+      ],
+      "correctAnswer": "You will get a console.error saying you cannot access a function declaration before initialisation.",
+      "moreInfo": "Technically these are hoisted but their value is set to uninitialised so in practice it helps to think of them as not hoisted. They are placed in a TDZ until they are defined."
+    },
+    {
+      "questionNumber": 26,
+      "question": "What happens if you try to access a function expression or arrow function before it is defined?",
+      "incorrectAnswers": [
+        "It will execute the function as defined further down.",
+        "You will get a console.error saying you cannot access a function declaration before initialisation.",
+        "You will get a console message saying the variable is undefined."
+      ],
+      "correctAnswer": "It depends on whether you've declared it with let, const or var.",
+      "moreInfo": "Var will be hoisted to undefined, but let or const will not be usable before it’s declared in the code because of the TDZ."
+    },
+    {
+      "questionNumber": 27,
+      "question": "What is the Temporal Dead Zone?",
+      "incorrectAnswers": [
+        "Something from Dr Who.",
+        "The time between the start of a project and the developer starting to write the code.",
+        "It's an infinite loop - a common error for beginners."
+      ],
+      "correctAnswer": "It's the place const and let variables get stored until they are fully initialised",
+      "moreInfo": "The Temporal Dead Zone or TDZ was created to make it easier to catch errors. It is bad practice to try and access a variable before it is defiend, and the easiest way to do this is to make it create an error - in this case saying that the variable has not yet been initialised."
+    },
+    {
+      "questionNumber": 28,
+      "question": "Now onto a few questions about the this keyword... first up, what is it?",
+      "incorrectAnswers": [
+        "It's a variable that comes with the Javascript Engine.",
+        "It's built into Javascript. You can mostly ignore it unless you're trying to make functions do something they're not designed to do.",
+        "It's something you have to define in every function or your code will break."
+      ],
+      "correctAnswer": "It's a special variable that gets created in every execution context in the creation phase.",
+      "moreInfo": "This means every function has its own this keyword, but the value is not static. It varies depending on how the function is called and its value is only assigned when the function is called."
+    },
+    {
+      "questionNumber": 29,
+      "question": "What does the this keyword point to in an arrow function?",
+      "incorrectAnswers": [
+        "Nothing because it doesn't have a this keyword.",
+        "It points to itself.",
+        "It always points to the window environment as it strictly doesn't have its own this keyword"
+      ],
+      "correctAnswer": "It points to its parent or surrounding function.",
+      "moreInfo": "This is known as the lexical this keyword."
+    },
+    {
+      "questionNumber": 30,
+      "question": "What does the this keyword point to in a method or function attached to an object?",
+      "incorrectAnswers": [
+        "Nothing.",
+        "It points to itself.",
+        "It points to any children it may have, and if it doesn't it points to the window object."
+      ],
+      "correctAnswer": "It points to the object that is calling the method",
+      "moreInfo": "So kind of like its parent as well!"
+    },
+    {
+      "questionNumber": 31,
+      "question": "What does the this keyword point to in a simple function call?",
+      "incorrectAnswers": ["Its parent element", "It points to itself.", "The DOM element it wants to manipulate."],
+      "correctAnswer": "It will be undefined as long as you're in strict mode",
+      "moreInfo": "You are in strict mode, right?"
+    },
+    {
+      "questionNumber": 32,
+      "question": "What does the this keyword point to in an event listener?",
+      "incorrectAnswers": [
+        "Its parent element as long as it has one.",
+        "It points to itself.",
+        "It always points to the window environment as it strictly doesn't have its own this keyword"
+      ],
+      "correctAnswer": "It points to the DOM element its attached to",
+      "moreInfo": "Makes sense, right?"
+    },
+    {
+      "questionNumber": 33,
+      "question": "Why should you avoid using an arrow function as a method in an object literal?",
+      "incorrectAnswers": [
+        "You can, as long as you specifically define this.",
+        "Because it's not really a method, it's a function.",
+        "Because it will cause an infinite loop."
+      ],
+      "correctAnswer": "Because it doesn't have its own this keyword and object literals don't have their own scope.",
+      "moreInfo": "Chances are you'll end up using the this keyword of the window object which is probably not what you were after. Use a regular function instead."
+    },
+    {
+      "questionNumber": 34,
+      "question": "You have a method in an object literal, and inside that are using a regular function declaration to create another method. You try to use this, but it returns undefined. Why? How would you fix it?",
+      "incorrectAnswers": [
+        "This is because a function declaration will have an undefined this keyword in strict mode. You can fix this by moving everything into the global scope.",
+        "Because you shouldn't use function expressions inside an object literal. You can fix this by turning the parent element into an arrow function.",
+        "This should work. Maybe go and ask on Stack Overflow."
+      ],
+      "correctAnswer": "The this keyword will be undefined for a function declaration in strict mode. You can fix this by using an arrow function in this case as it's inside another method.",
+      "moreInfo": "Remember: function declarations are better as direct children of object literals, but if they have children and you want to access this, you need to have the child be an arrow function."
     }
   ]
 }
