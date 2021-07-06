@@ -108,7 +108,7 @@
     },
     {
       "questionNumber": 11,
-      "question": "What are the componoents of a Javascript Engine?",
+      "question": "What are the components of a Javascript Engine?",
       "incorrectAnswers": [
         "The heap and the data flow.",
         "The call stack and the non-blocking event loop",
@@ -249,7 +249,7 @@
         "The Javascript Engine will prioritise functions and hoist them to the top of the call stack.",
         "This means the compiation process is complete and we're good to go."
       ],
-      "correctAnswer": "Hoisting makes some kinds of variables availabe in the code before they are declared.",
+      "correctAnswer": "Hoisting makes some kinds of variables available in the code before they are declared.",
       "moreInfo": "The code is scanned during the creation phase for variable declarations and a new property is created in the variable environment of the execution context."
     },
     {
@@ -379,6 +379,39 @@
       ],
       "correctAnswer": "The this keyword will be undefined for a function declaration in strict mode. You can fix this by using an arrow function in this case as it's inside another method.",
       "moreInfo": "Remember: function declarations are better as direct children of object literals, but if they have children and you want to access this, you need to have the child be an arrow function."
+    },
+    {
+      "questionNumber": 35,
+      "question": "What is the main difference between how primative objects and reference objects are stored in memory?",
+      "incorrectAnswers": [
+        "There is no difference, they're all stored in the memory heap.",
+        "Reference objects are stored in the call stack, primative objects are stored in the memory heap.",
+        "These are all stored on your computer."
+      ],
+      "correctAnswer": "Primative objects are stored in the call stack. Objects are stored in the memory heap.",
+      "moreInfo": "Objects are stored in the memory heap as they're potentially larger, but references to its location in the memory are stored in the call stack."
+    },
+    {
+      "questionNumber": 36,
+      "question": "If you try to declare a new primative type (e.g. let age = 40), set another variable equal to that variable, then give the first variable a new value what will happen?",
+      "incorrectAnswers": [
+        "Both variables will be the same because you can't change primative types.",
+        "The variables will be different because when you assign variable1 to equal variable2, it creates a new memory reference immediately. The old value at the old memory address can therefore be rewritten.",
+        "You will get an error in the console saying you can't access the variable before initialisation."
+      ],
+      "correctAnswer": "You will get two different values. Variable1 and Variable2 will initially have the same memory address reference. Variable1 will get a new memory reference when it's given a new value.",
+      "moreInfo": "And that's why primative types are awesome!"
+    },
+    {
+      "questionNumber": 37,
+      "question": "If you try to declare a new object (object1), then create a new object (object2) and set it to be equal to object1, then try to change one of the values inside object2, what will happen?",
+      "incorrectAnswers": [
+        "You will get two different values. Object1 and Object2 will initially have the same memory address reference. Object1 will get a new memory reference when it's given a new value.",
+        "The variables will be different because when you assign object1 to equal object2, it creates a new memory reference immediately. The old value at the old memory address can therefore be rewritten.",
+        "You will get an error in the console saying you can't access the variable before initialisation."
+      ],
+      "correctAnswer": "Both values will be the same because they share the same memory reference in the call stack.",
+      "moreInfo": "If you want to clone an object, you can use Object.assign({}, object1), but this will only do a shallow clone. For a deep clone, try lodash or some other external library."
     }
   ]
 }

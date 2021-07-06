@@ -9,9 +9,9 @@ request.send()
 request.onload = function () {
   const questionsObject = request.response
 
-  const questions = questionsObject.questions
+  const questions = shuffle(questionsObject.questions)
 
-  const shuffle = array => {
+  function shuffle (array) {
     var currentIndex = array.length,
       randomIndex
 
@@ -49,7 +49,7 @@ request.onload = function () {
       document.querySelector('.answer4').classList.remove('incorrectClass')
       document.querySelector('.answer4').classList.remove('correctClass')
       document.querySelector('.answer4').classList.add('neutralClass')
-      document.querySelector('.nextQuestion').classList.add('hidden')
+      document.querySelector('.nextQuestion').classList.add('disabled')
       document.querySelector('.moreInfo').classList.add('hidden')
 
       for (
@@ -67,7 +67,7 @@ request.onload = function () {
 
       document.querySelector(
         '.questionNumber'
-      ).textContent = `Question ${questions[currentQuestion].questionNumber}`
+      ).textContent = `Question ${currentQuestion + 1}`
 
       document.querySelector(
         '.question'
@@ -106,7 +106,8 @@ request.onload = function () {
       }
     }
     document.querySelector('.moreInfo').classList.remove('hidden')
-    document.querySelector('.nextQuestion').classList.remove('hidden')
+    document.querySelector('.nextQuestion').classList.remove('disabled')
+    questions.splice(0, 1)
   }
 
   const finishGame = () => {
@@ -118,10 +119,10 @@ request.onload = function () {
     document.querySelector('.moreInfo').classList.add('hidden')
     document.querySelector('.choose').classList.add('hidden')
     document.querySelector('.questionNumber').classList.add('hidden')
-    document.querySelector('.nextQuestion').classList.add('hidden')
+    document.querySelector('.nextQuestion').classList.add('disabled')
     document.querySelector(
       '.question'
-    ).textContent = `Congratulations, you completed the quiz! Your final score is ${score}`
+    ).textContent = `Congratulations, you completed the quiz! Your final score is ${score} out of ${questionsObject.questions.length}`
   }
 
   let currentQuestion = 0
@@ -132,24 +133,41 @@ request.onload = function () {
 
   document.querySelector('.answer1').addEventListener('click', function () {
     checkForCorrectAnswer('answer1')
+    document.querySelector('.answer2').classList.add('unclickable')
+    document.querySelector('.answer3').classList.add('unclickable')
+    document.querySelector('.answer4').classList.add('unclickable')
   })
 
   document.querySelector('.answer2').addEventListener('click', function () {
     checkForCorrectAnswer('answer2')
+    document.querySelector('.answer1').classList.add('unclickable')
+    document.querySelector('.answer3').classList.add('unclickable')
+    document.querySelector('.answer4').classList.add('unclickable')
   })
 
   document.querySelector('.answer3').addEventListener('click', function () {
     checkForCorrectAnswer('answer3')
+    document.querySelector('.answer1').classList.add('unclickable')
+    document.querySelector('.answer2').classList.add('unclickable')
+    document.querySelector('.answer4').classList.add('unclickable')
   })
 
   document.querySelector('.answer4').addEventListener('click', function () {
     checkForCorrectAnswer('answer4')
+    document.querySelector('.answer1').classList.add('unclickable')
+    document.querySelector('.answer2').classList.add('unclickable')
+    document.querySelector('.answer3').classList.add('unclickable')
   })
 
   document
     .querySelector('.nextQuestion')
     .addEventListener('click', function () {
       currentQuestion++
+      document.querySelector('.answer1').classList.remove('unclickable')
+      document.querySelector('.answer2').classList.remove('unclickable')
+      document.querySelector('.answer3').classList.remove('unclickable')
+      document.querySelector('.answer4').classList.remove('unclickable')
+
       initialise()
     })
 }
