@@ -265,7 +265,7 @@
     },
     {
       "questionNumber": 24,
-      "question": "What happens if you try to access a variable declard with var before it is defined?",
+      "question": "What happens if you try to access a variable declared with var before it is defined?",
       "incorrectAnswers": [
         "You will get a console.error saying you cannot access a function declaration before initialisation.",
         "It will give you the variable definition defined further down.",

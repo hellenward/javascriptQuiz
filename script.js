@@ -10,6 +10,7 @@ request.onload = function () {
   const questionsObject = request.response
 
   const questions = shuffle(questionsObject.questions)
+  const totalQuestions = questionsObject.questions.length
 
   function shuffle (array) {
     var currentIndex = array.length,
@@ -34,7 +35,7 @@ request.onload = function () {
   const initialise = () => {
     answerSelectionArray = []
 
-    if (currentQuestion === questions.length - 1) {
+    if (questions.length === 0) {
       finishGame()
     } else {
       document.querySelector('.answer1').classList.remove('incorrectClass')
@@ -52,17 +53,11 @@ request.onload = function () {
       document.querySelector('.nextQuestion').classList.add('disabled')
       document.querySelector('.moreInfo').classList.add('hidden')
 
-      for (
-        let i = 0;
-        i < questions[currentQuestion].incorrectAnswers.length;
-        i++
-      ) {
-        answerSelectionArray.push(
-          questions[currentQuestion].incorrectAnswers[i]
-        )
+      for (let i = 0; i < questions[0].incorrectAnswers.length; i++) {
+        answerSelectionArray.push(questions[0].incorrectAnswers[i])
       }
 
-      answerSelectionArray.push(questions[currentQuestion].correctAnswer)
+      answerSelectionArray.push(questions[0].correctAnswer)
       shuffle(answerSelectionArray)
 
       document.querySelector(
@@ -71,14 +66,13 @@ request.onload = function () {
 
       document.querySelector(
         '.question'
-      ).textContent = `${questions[currentQuestion].question}`
+      ).textContent = `${questions[0].question}`
 
       document.querySelector('.answer1').textContent = answerSelectionArray[0]
       document.querySelector('.answer2').textContent = answerSelectionArray[1]
       document.querySelector('.answer3').textContent = answerSelectionArray[2]
       document.querySelector('.answer4').textContent = answerSelectionArray[3]
-      document.querySelector('.moreInfo').textContent =
-        questions[currentQuestion].moreInfo
+      document.querySelector('.moreInfo').textContent = questions[0].moreInfo
     }
   }
 
@@ -87,7 +81,7 @@ request.onload = function () {
 
     if (
       document.querySelector(`.${element}`).textContent ===
-      questions[currentQuestion].correctAnswer
+      questions[0].correctAnswer
     ) {
       document.querySelector(`.${element}`).classList.add('correctClass')
       score++
@@ -96,9 +90,7 @@ request.onload = function () {
       document.querySelector(`.${element}`).classList.add('incorrectClass')
     }
     for (let i = 0; i <= answerSelectionArray.length; i++) {
-      if (
-        answerSelectionArray[i] === questions[currentQuestion].correctAnswer
-      ) {
+      if (answerSelectionArray[i] === questions[0].correctAnswer) {
         const correct = i + 1
         document
           .querySelector(`.answer${correct}`)
@@ -108,6 +100,7 @@ request.onload = function () {
     document.querySelector('.moreInfo').classList.remove('hidden')
     document.querySelector('.nextQuestion').classList.remove('disabled')
     questions.splice(0, 1)
+    console.log(questions)
   }
 
   const finishGame = () => {
@@ -122,7 +115,7 @@ request.onload = function () {
     document.querySelector('.nextQuestion').classList.add('disabled')
     document.querySelector(
       '.question'
-    ).textContent = `Congratulations, you completed the quiz! Your final score is ${score} out of ${questionsObject.questions.length}`
+    ).textContent = `Congratulations, you completed the quiz! Your final score is ${score} out of ${totalQuestions}`
   }
 
   let currentQuestion = 0
