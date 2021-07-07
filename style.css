@@ -30,13 +30,6 @@ button:hover {
   padding: 5px 10px;
 }
 
-button:disabled,
-button[disabled] {
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
-}
-
 .score {
   text-align: center;
   margin-top: 50px;
@@ -72,6 +65,7 @@ button[disabled] {
 .nextQuestion {
   height: 50px;
   border-radius: 15%;
+  margin-top: 20px;
 }
 
 .answerBox {

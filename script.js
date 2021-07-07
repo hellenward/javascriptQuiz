@@ -50,8 +50,8 @@ request.onload = function () {
       document.querySelector('.answer4').classList.remove('incorrectClass')
       document.querySelector('.answer4').classList.remove('correctClass')
       document.querySelector('.answer4').classList.add('neutralClass')
-      document.querySelector('.nextQuestion').classList.add('disabled')
       document.querySelector('.moreInfo').classList.add('hidden')
+      document.querySelector('.nextQuestion').classList.add('hidden')
 
       for (let i = 0; i < questions[0].incorrectAnswers.length; i++) {
         answerSelectionArray.push(questions[0].incorrectAnswers[i])
@@ -98,7 +98,7 @@ request.onload = function () {
       }
     }
     document.querySelector('.moreInfo').classList.remove('hidden')
-    document.querySelector('.nextQuestion').classList.remove('disabled')
+    document.querySelector('.nextQuestion').classList.remove('hidden')
     questions.splice(0, 1)
     console.log(questions)
   }
@@ -112,7 +112,7 @@ request.onload = function () {
     document.querySelector('.moreInfo').classList.add('hidden')
     document.querySelector('.choose').classList.add('hidden')
     document.querySelector('.questionNumber').classList.add('hidden')
-    document.querySelector('.nextQuestion').classList.add('disabled')
+    document.querySelector('.nextQuestion').classList.add('hidden')
     document.querySelector(
       '.question'
     ).textContent = `Congratulations, you completed the quiz! Your final score is ${score} out of ${totalQuestions}`
